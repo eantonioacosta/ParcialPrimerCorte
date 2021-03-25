@@ -25,7 +25,7 @@ public class Pruebas {
     public Pruebas() {
     }
     /*La cantidad de la entrada de debe ser mayor a 0
-    DADO: Tengo un producto 'Gaseosa' con una cantidad igual a cero y precio '$500';
+    DADO: Tengo un producto 'CODIGO = 001, NOMBRE: GASEOSA, PRECIO=2000, COSTO=500 y una cantidad igua a cero ';
     CUANDO: Registre una entrada
     ENTONCES: el sistema debe mostrar el ste mensaje 
               'La entrada del producto no tiene stock'

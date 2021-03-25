@@ -28,7 +28,7 @@ public class EntradaProducto {
 
     private void guardarProducto(Producto producto) {
         for (int i = 0; i < lista.size(); i++) {
-            if (producto.getCodigo().equals(producto.getCodigo())) {
+            if (lista.get(i).getCodigo().equals(producto.getCodigo())) {
                 lista.get(i).sumarCantidad(producto.getCantidad());
                 break;
             }
