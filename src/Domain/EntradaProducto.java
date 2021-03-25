@@ -18,23 +18,37 @@ public class EntradaProducto {
         lista = new ArrayList<>();
     }
     public String RegistrarEntrada(Producto producto){
-        if(producto.getCantidad()==0){
+        if(producto.getCantidad()<=0){
             return "La entrada del producto no tiene stock";
         }else{
             guardarProducto(producto);
             return "La entrada se registro correctamente";
         }
     }
+    public ArrayList<Producto> Consultar(){
+        return Consultar();
+    }
 
     private void guardarProducto(Producto producto) {
-        for (int i = 0; i < lista.size(); i++) {
-            if (lista.get(i).getCodigo().equals(producto.getCodigo())) {
-                lista.get(i).sumarCantidad(producto.getCantidad());
-                break;
+        if (buscar(producto.getCodigo())!=null) {
+            for (int i = 0; i < lista.size(); i++) {
+                if (lista.get(i).getCodigo().equals(producto.getCodigo())) {
+                    lista.get(i).sumarCantidad(producto.getCantidad());
+                    break;
+                }
             }
+        } else {
+            lista.add(producto);
         }
 
     }
     
-    
+    public Producto buscar(String codigo) {
+        for (Producto producto1 : lista) {
+            if (producto1.getCodigo().equals(codigo)) {
+                return producto1;
+            }
+        }
+        return null;
+    }
 }

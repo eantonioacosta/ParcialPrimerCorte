@@ -24,6 +24,7 @@ public class Pruebas {
     
     public Pruebas() {
     }
+    //PRIMERA PRUEBA
     /*La cantidad de la entrada de debe ser mayor a 0
     DADO: Tengo un producto 'CODIGO = 001, NOMBRE: GASEOSA, PRECIO=2000, COSTO=500 y una cantidad igua a cero ';
     CUANDO: Registre una entrada
@@ -47,6 +48,33 @@ public class Pruebas {
         }
     }
     
+    //SEGUNDA PRUEBA
+    /*2. La cantidad de la entrada se le aumentará a la cantidad existente del producto
+    DADO: registro 2 productos con los mismo atributos excepto la cantidad
+    'CODIGO = 001, NOMBRE= GASEOSA, PRECIO=2000, COSTO=500, CANTIDAD= 5 ';
+    'CODIGO = 001, NOMBRE= GASEOSA, PRECIO=2000, COSTO=500, CANTIDAD= 2 ';
+    
+    CUANDO: Busquo y muestro el objeto producto con codigo = 001
+    ENTONCES: el sistema debe mostrar el ste mensaje 
+              'CODIGO = 001 NOMBRE = GASEOSA PRECIO = 2000.0 CANTIDAD = 7'
+    */
+    @Test
+    public void cantidadExistenteProductoAumente() {
+        EntradaProducto instance = new EntradaProducto();
+        
+        Producto productoSimple1 = new ProductoSimple("001", "GASEOSA", 2000,5, 500);
+        Producto productoSimple2 = new ProductoSimple("001", "GASEOSA", 2000,2, 500);
+        String expResult = "CODIGO = 001 NOMBRE = GASEOSA PRECIO = 2000.0 CANTIDAD = 7";
+        instance.RegistrarEntrada(productoSimple1);
+        instance.RegistrarEntrada(productoSimple2);
+        String result = instance.buscar("001").toString();
+        
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        if (!result.equals(expResult)) {
+            fail("The test case is a prototype.");
+        }
+    }
     @BeforeClass
     public static void setUpClass() {
     }

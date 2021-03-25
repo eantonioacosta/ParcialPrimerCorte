@@ -29,6 +29,13 @@ public class ProductoSimple extends Producto{
     public void setCosto(double costo) {
         this.costo = costo;
     }
+//
+//    @Override
+//    public String toString() {
+//        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+//    }
+    
+    
     
     
 }

@@ -68,6 +68,11 @@ public abstract class Producto {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
+
+    @Override
+    public String toString() {
+        return "CODIGO = "+codigo+" NOMBRE = "+nombre+" PRECIO = "+precio+" CANTIDAD = "+cantidad; 
+    }
         
     
     
