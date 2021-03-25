@@ -32,7 +32,7 @@ public class Pruebas {
               'La entrada del producto no tiene stock'
     */
     @Test
-    public void cantidadEntradaMayoCero() {
+    public void cantidadEntradaMayorCero() {
         EntradaProducto instance = new EntradaProducto();
         
         Producto productoSimple = new ProductoSimple("001", "GASEOSA", 2000,0, 500);
@@ -54,7 +54,7 @@ public class Pruebas {
     'CODIGO = 001, NOMBRE= GASEOSA, PRECIO=2000, COSTO=500, CANTIDAD= 5 ';
     'CODIGO = 001, NOMBRE= GASEOSA, PRECIO=2000, COSTO=500, CANTIDAD= 2 ';
     
-    CUANDO: Busquo y muestro el objeto producto con codigo = 001
+    CUANDO: Busco y muestro el objeto producto con codigo = 001
     ENTONCES: el sistema debe mostrar el ste mensaje 
               'CODIGO = 001 NOMBRE = GASEOSA PRECIO = 2000.0 CANTIDAD = 7'
     */
@@ -68,6 +68,31 @@ public class Pruebas {
         instance.RegistrarEntrada(productoSimple1);
         instance.RegistrarEntrada(productoSimple2);
         String result = instance.buscar("001").toString();
+        
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        if (!result.equals(expResult)) {
+            fail("The test case is a prototype.");
+        }
+    }
+    
+    
+    //TERCERA PRUEBA
+    /*La cantidad de la salida de debe ser mayor a 0
+    DADO: 
+    CUANDO: 
+    ENTONCES: el sistema debe mostrar el ste mensaje 
+              'La entrada del producto no tiene stock'
+    */
+    @Test
+    public void cantidadSalidaMayorCero() {
+        EntradaProducto instance = new EntradaProducto();
+        
+        Producto productoSimple = new ProductoSimple("001", "GASEOSA", 2000,0, 500);
+        
+        String expResult = "La entrada del producto no tiene stock";
+        
+        String result = instance.RegistrarEntrada(productoSimple);
         
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
