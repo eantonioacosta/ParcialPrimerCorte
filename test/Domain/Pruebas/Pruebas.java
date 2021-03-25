@@ -25,6 +25,8 @@ public class Pruebas {
     
     public Pruebas() {
     }
+    //https://drive.google.com/drive/folders/1NinNGppAW6jhqNcodrreE6IQJRxnBo-I?usp=sharing
+    //LINK MODELO DEL DOMINIO;
     //PRIMERA PRUEBA
     /*La cantidad de la entrada de debe ser mayor a 0
     DADO: Tengo un producto 'CODIGO = 001, NOMBRE: GASEOSA, PRECIO=2000, COSTO=500 y una cantidad igua a cero ';
