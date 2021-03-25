@@ -22,6 +22,10 @@ public abstract class Producto {
         this.cantidad = cantidad;
     }
 
+ 
+
+
+
 
     
     public void sumarCantidad(int cant){
@@ -73,6 +77,8 @@ public abstract class Producto {
     public String toString() {
         return "CODIGO = "+codigo+" NOMBRE = "+nombre+" PRECIO = "+precio+" CANTIDAD = "+cantidad; 
     }
+
+
         
     
     

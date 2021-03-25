@@ -34,6 +34,7 @@ public class ProductoPreparado extends ProductoCompuesto{
     }
     
 
+
     @Override
     public double utilidad() {
         return getPrecio()-costoCalculado();

@@ -10,8 +10,8 @@ package Domain;
  * @author ENOR ACOSTA
  */
 public class ProductoSimple extends Producto{
+
     private double costo;
-    
     public ProductoSimple() {
     }
 
@@ -21,6 +21,11 @@ public class ProductoSimple extends Producto{
     }
 
 
+//
+//    @Override
+//    public String toString() {
+//        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+//    }
 
     public double getCosto() {
         return costo;
@@ -29,11 +34,6 @@ public class ProductoSimple extends Producto{
     public void setCosto(double costo) {
         this.costo = costo;
     }
-//
-//    @Override
-//    public String toString() {
-//        return super.toString(); //To change body of generated methods, choose Tools | Templates.
-//    }
     
     
     

@@ -8,6 +8,7 @@ package Domain.Pruebas;
 import Domain.EntradaProducto;
 import Domain.Producto;
 import Domain.ProductoSimple;
+import Domain.SalidaProducto;
 import java.util.Date;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -79,20 +80,20 @@ public class Pruebas {
     
     //TERCERA PRUEBA
     /*La cantidad de la salida de debe ser mayor a 0
-    DADO: 
-    CUANDO: 
+    DADO: Tengo un producto 'CODIGO = 001, NOMBRE: GASEOSA, PRECIO=2000, COSTO=500 y una cantidad igua a cero ';
+    CUANDO: Registre una entrada
     ENTONCES: el sistema debe mostrar el ste mensaje 
-              'La entrada del producto no tiene stock'
+              'La salida del producto no tiene stock'
     */
     @Test
     public void cantidadSalidaMayorCero() {
-        EntradaProducto instance = new EntradaProducto();
+        SalidaProducto instance = new SalidaProducto();
         
         Producto productoSimple = new ProductoSimple("001", "GASEOSA", 2000,0, 500);
         
-        String expResult = "La entrada del producto no tiene stock";
+        String expResult = "La salida del producto no tiene stock";
         
-        String result = instance.RegistrarEntrada(productoSimple);
+        String result = instance.RegistrarSalida(productoSimple);
         
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
