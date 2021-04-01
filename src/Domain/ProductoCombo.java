@@ -19,13 +19,13 @@ public class ProductoCombo extends ProductoCompuesto{
     }
    
     @Override
-    public double costoCalculado() {
+    public double costoCalculado(int cantidad) {
         double valor=0;
         for (Producto producto : listaProductos) {
             if(producto instanceof ProductoSimple){
-                valor +=((ProductoSimple) producto).getCosto();
+                valor +=((ProductoSimple) producto).getCosto()*cantidad;
             }else{
-                valor += ((ProductoPreparado) producto).costoCalculado();
+                valor += ((ProductoPreparado) producto).costoCalculado(cantidad);
             }
         }
         return valor;
@@ -34,8 +34,31 @@ public class ProductoCombo extends ProductoCompuesto{
     
 
     @Override
-    public double utilidad() {
-        return costoCalculado()-getPrecio();
+    public double utilidad(int cantidad) {
+        return costoCalculado(cantidad)-getPrecio();
     }
-    
+
+    @Override
+    public String incrementarCantidad(int cant) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String disminuirCantidad(int cant) {
+        if(cant<=0){
+            return "La cantidad de salida debe ser mayor a cero";
+        }else{
+            agregarHistorial(new SalidaProducto("PRODUCTO COMBO",getCodigo(), getNombre(), getPrecio(), costoCalculado(cant)));
+            
+            disminuirIngredientes(cant);
+            return "Salida exitosa";
+        }
+    }
+    private void disminuirIngredientes(int cantidad){
+        for (Producto producto : listaProductos) {
+            producto.disminuirCantidad(cantidad);
+        }
+    }
+
+
 }

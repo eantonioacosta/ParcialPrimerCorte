@@ -12,43 +12,55 @@ import java.util.ArrayList;
  * @author ENOR ACOSTA
  */
 public class EntradaProducto {
-    ArrayList<Producto> lista;
+    String codigo;
+    String nombre;
+    int cantidadAnterior;
+    int cantidadActual;
 
     public EntradaProducto() {
-        lista = new ArrayList<>();
-    }
-    public String RegistrarEntrada(Producto producto){
-        if(producto.getCantidad()<=0){
-            return "La entrada del producto no tiene stock";
-        }else{
-            guardarProducto(producto);
-            return "La entrada se registro correctamente";
-        }
-    }
-    public ArrayList<Producto> Consultar(){
-        return Consultar();
     }
 
-    private void guardarProducto(Producto producto) {
-        if (buscar(producto.getCodigo())!=null) {
-            for (int i = 0; i < lista.size(); i++) {
-                if (lista.get(i).getCodigo().equals(producto.getCodigo())) {
-                    lista.get(i).sumarCantidad(producto.getCantidad());
-                    break;
-                }
-            }
-        } else {
-            lista.add(producto);
-        }
+    public EntradaProducto(String codigo, String nombre, int cantidadAnterior, int cantidadActual) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.cantidadAnterior = cantidadAnterior;
+        this.cantidadActual = cantidadActual;
+    }
 
+
+
+    public String getCodigo() {
+        return codigo;
     }
-    
-    public Producto buscar(String codigo) {
-        for (Producto producto1 : lista) {
-            if (producto1.getCodigo().equals(codigo)) {
-                return producto1;
-            }
-        }
-        return null;
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getCantidadAnterior() {
+        return cantidadAnterior;
+    }
+
+    public void setCantidadAnterior(int cantidadAnterior) {
+        this.cantidadAnterior = cantidadAnterior;
+    }
+
+    public int getCantidadActual() {
+        return cantidadActual;
+    }
+
+    public void setCantidadActual(int cantidadActual) {
+        this.cantidadActual = cantidadActual;
+    }
+
+
+            
 }

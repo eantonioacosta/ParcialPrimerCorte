@@ -5,41 +5,37 @@
  */
 package Domain;
 
+import java.util.ArrayList;
 
 public abstract class Producto {
+
     private String codigo;
     private String nombre;
     private double precio;
     private int cantidad;
+    private ArrayList<SalidaProducto> historiaSalida;
 
     public Producto() {
+        historiaSalida = new ArrayList<>();
     }
 
-    public Producto(String codigo, String nombre, double precio, int cantidad) {
+    public Producto(String codigo, String nombre, double precio) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.precio = precio;
-        this.cantidad = cantidad;
+        historiaSalida = new ArrayList<>();
     }
-
- 
-
-
-
-
-    
-    public void sumarCantidad(int cant){
-        cantidad+=cant;
+    public void agregarHistorial(SalidaProducto salida){
+        historiaSalida.add(salida);
     }
-    
-    public  boolean restarCantidad(int cant){
-        if(cantidad >cant){
-            cantidad -=cant;
-            return true;
-        }  
-        return false;
+    public ArrayList<SalidaProducto> consultarHistorialSalida(){
+        return historiaSalida;
     }
-    
+            
+
+    public abstract String incrementarCantidad(int cant);
+
+    public abstract String disminuirCantidad(int cant);
 
     public String getCodigo() {
         return codigo;
@@ -61,8 +57,13 @@ public abstract class Producto {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+    public String setCantidad(int cantidad) {
+        if (cantidad <= 0) {
+            return "la cantidad debe ser mayor a cero";
+        } else {
+            this.cantidad = cantidad;
+            return "Ok";
+        }
     }
 
     public double getPrecio() {
@@ -75,12 +76,7 @@ public abstract class Producto {
 
     @Override
     public String toString() {
-        return "CODIGO = "+codigo+" NOMBRE = "+nombre+" PRECIO = "+precio+" CANTIDAD = "+cantidad; 
+        return "CODIGO = " + codigo + " NOMBRE = " + nombre + " PRECIO = " + precio + " CANTIDAD = " + cantidad;
     }
 
-
-        
-    
-    
-    
 }

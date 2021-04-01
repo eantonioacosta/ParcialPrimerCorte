@@ -13,11 +13,11 @@ public abstract class ProductoCompuesto  extends  Producto{
 
     public ProductoCompuesto() {
     }
-    public ProductoCompuesto(String codigo, String nombre, double precio, int cantidad) {
-        super(codigo, nombre, precio, cantidad);
+    public ProductoCompuesto(String codigo, String nombre, double precio) {
+        super(codigo, nombre, precio);
     }
 
     
-    public abstract double costoCalculado();
-    public abstract double utilidad();
+    public abstract double costoCalculado(int cantidad);
+    public abstract double utilidad(int cantidad);
 }
